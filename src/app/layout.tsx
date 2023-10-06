@@ -48,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html dir='rtl' className={`${figtree.variable} ${vazirmatn.variable}`}>
-      <body className="flex flex-col min-h-screen font-bold uppercase">
+    <html dir='rtl' className={`dark ${figtree.variable} ${vazirmatn.variable}`}>
+      <body className="flex flex-col min-h-screen font-bold uppercase  dark:bg-base-100 dark:text-base-content">
         <header className='bg-gray-200 flex items-center justify-center  h-20'>
           الله
         </header>
