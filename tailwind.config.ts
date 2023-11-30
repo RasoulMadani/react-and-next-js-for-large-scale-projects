@@ -1,16 +1,21 @@
-import type { Config } from 'tailwindcss'
-import { colord,extend } from './node_modules/colord';
+import type { Config } from "tailwindcss";
+import { colord, extend } from "./node_modules/colord";
 // import { extend } from './node_modules/colord/extend';
 import mixPlugin from "./node_modules/colord/plugins/mix";
 extend([mixPlugin]);
 // کتابخانه کالردی یه رنگ را می گیرد و یک میزانی آن را تیره می کند
-const generateDarkenColorFrom = (input:string,percentage= 0.07): string=>{
- return colord(input).darken(percentage).toHex();
-}
-const generateForegroundColorFrom = (input:string,percentage= 0.8):string=>{
- return colord(input).mix(colord(input).isDark() ? 'white' : "black",percentage).toHex();
-}
-export const tailwindColors: {[key:string]:string}={
+const generateDarkenColorFrom = (input: string, percentage = 0.07): string => {
+  return colord(input).darken(percentage).toHex();
+};
+const generateForegroundColorFrom = (
+  input: string,
+  percentage = 0.8
+): string => {
+  return colord(input)
+    .mix(colord(input).isDark() ? "white" : "black", percentage)
+    .toHex();
+};
+export const tailwindColors: { [key: string]: string } = {
   current: "currentColor",
   transparent: "transparent",
   white: "#F9F9F9",
@@ -43,20 +48,21 @@ export const tailwindColors: {[key:string]:string}={
   "error-content": generateForegroundColorFrom("#f87272"),
   "gradient-first": "#34eaa0",
   "gradient-second": "#0fa2e9",
-}
+};
 const config: Config = {
-  content: [
-    './src/app/**/*.{tsx,jsx}',
-  ],
+  content: ["./src/app/**/*.{tsx,jsx}"],
   theme: {
-    colors:tailwindColors,
-    container:{
-      center: true
+    colors: tailwindColors,
+    container: {
+      center: true,
     },
     extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/images/tile.svg')",
+      },
     },
   },
-  darkMode: 'class',
+  darkMode: "class",
   plugins: [],
-}
-export default config
+};
+export default config;
