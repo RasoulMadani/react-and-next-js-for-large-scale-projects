@@ -2,3 +2,5 @@ https://github.com/abbassep3200/classbon-nextjs
 
 yarn add colord
 https://github.com/omgovich/colord
+
+pnpm add clsx

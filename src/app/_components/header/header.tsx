@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
           alt="کلاسبن"
         />
         <TopNavigation/>
-        <span>user Authentication</span>
+        <span className="ms-auto">user Authentication</span>
       </div>
     </header>
   );
