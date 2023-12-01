@@ -1,5 +1,5 @@
 export type LoadingBehavior = {
-  isLoading: boolean;
+  isLoading?: boolean;
   loadingText?: string;
   loadingType?: "spinner" | "ring"; 
 };
