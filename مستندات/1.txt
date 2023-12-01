@@ -4,3 +4,5 @@ yarn add colord
 https://github.com/omgovich/colord
 
 pnpm add clsx
+
+pnpm add classnames
