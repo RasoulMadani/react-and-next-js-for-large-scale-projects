@@ -6,3 +6,6 @@ https://github.com/omgovich/colord
 pnpm add clsx
 
 pnpm add classnames
+
+pnpm dlx storybook@latest init
+pnpm run storybook
