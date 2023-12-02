@@ -19,7 +19,7 @@ export default function Home() {
             کلاسبن می تونی بدون محدودیت به قله های بالاتر صعود کنی . ما همیشه
             هواتو داریم
           </p>
-          <Button variant="primary">
+          <Button variant="accent" size="large" shape="square">
             دوره های ری اکت و نکست جی اس
           </Button>
           <Image
