@@ -1,0 +1,16 @@
+/Users/safeAllah/Documents/classbon/next-app2/classbon-allah/jest.config.js:1
+import nextJest from 'next/jest.js'
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1288:20)
+    at Module._compile (node:internal/modules/cjs/loader:1340:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at require (node:internal/modules/helpers:176:18)
+    at requireOrImportModule (/Users/safeAllah/Documents/classbon/next-app2/classbon-allah/node_modules/.pnpm/jest-util@29.7.0/node_modules/jest-util/build/requireOrImportModule.js:44:28)
+    at readConfigFileAndSetRootDir (/Users/safeAllah/Documents/classbon/next-app2/classbon-allah/node_modules/.pnpm/jest-config@29.7.0_@types+node@20.6.3/node_modules/jest-config/build/readConfigFileAndSetRootDir.js:112:66)
+ ELIFECYCLE  Test failed. See above for more details.
