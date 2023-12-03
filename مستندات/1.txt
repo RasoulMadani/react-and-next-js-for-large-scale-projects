@@ -14,3 +14,5 @@ pnpm run storybook
 pnpm add -D @testing-library/jest-dom @testing-library/react @testing-library/user-event jest jest-environment-jsdom ts-jest
 تغییر نسخه برای حل یک مشکل در تست نویسی
 pnpm add -D @testing-library/jest-dom@5.16.5
+
+pnpm test
