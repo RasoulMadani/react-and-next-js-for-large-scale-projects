@@ -39,6 +39,6 @@ describe("Button Component", () => {
         Click here
       </Button>
     );
-    screen.debug();
+    screen.debug(); 
   });
 });
