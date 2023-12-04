@@ -1,5 +1,6 @@
 import { CourseSummary } from "@/types/course-summary.interface";
 import Image from "next/image";
+import Link from "next/link";
 
 export type CourseCardProps = CourseSummary & {};
 const CourseCard: React.FC<CourseCardProps> = ({
@@ -22,6 +23,31 @@ const CourseCard: React.FC<CourseCardProps> = ({
           height={327}
         />
       </figure>
+      <div className="mt-2 flex gap-2 font-semibold dark:text-info px-3 py-2">
+        {
+            recordStatus
+        }
+        {
+            level
+        }
+      </div>
+      <div className="card-body">
+        <Link href={`/course/${slug}`}>
+            {title}
+        </Link>
+        <p>
+            {subTitle}
+        </p>
+        <div>
+            {duration}
+            {basePrice}
+        </div>
+      </div>
+      <Link href={`/course/${slug}`}
+        className="card-footer justify-center"
+      > 
+            مشاهده ی جزییات دوره
+      </Link>
     </div>
   );
 };
