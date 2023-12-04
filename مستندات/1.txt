@@ -21,4 +21,7 @@ pnpm add -D @storybook/addon-jest
 
 pnpm test:generate-output --watch
 
-K2rt
+
+pnpm add -D gulp gulp-rename gulp-wrap gulp-replace gulp-svgmin
+cd icons
+sudo npm install gulp -g
