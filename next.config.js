@@ -10,6 +10,14 @@ const nextConfig = {
         //  اگر لوکال کار می کنیم می توانیم پورت را بدهیم
         // port: ''
       },
+      {
+        protocol: 'https',
+        hostname: 'classbon-blog.s3.ir-thr-at1.arvanstorage.ir'
+      },
+      {
+        protocol: 'https',
+        hostname: 'classbon-blog.s3.ir-thr-at1.arvanstorage.com'
+      }
     ],
   },
 };

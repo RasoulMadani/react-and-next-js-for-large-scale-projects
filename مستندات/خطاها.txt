@@ -14,3 +14,8 @@ SyntaxError: Cannot use import statement outside a module
     at requireOrImportModule (/Users/safeAllah/Documents/classbon/next-app2/classbon-allah/node_modules/.pnpm/jest-util@29.7.0/node_modules/jest-util/build/requireOrImportModule.js:44:28)
     at readConfigFileAndSetRootDir (/Users/safeAllah/Documents/classbon/next-app2/classbon-allah/node_modules/.pnpm/jest-config@29.7.0_@types+node@20.6.3/node_modules/jest-config/build/readConfigFileAndSetRootDir.js:112:66)
  ELIFECYCLE  Test failed. See above for more details.
+
+خطای مربوط به نشانی عکس ها از یک نشانی غیر مرتبط
+Error: Invalid src prop (https://classbon-blog.s3.ir-thr-at1.arvanstorage.ir/a7d3bab5-d810-40f4-962a-59e2a50da324?AWSAccessKeyId=5e4656c0-96c4-40c3-9504-e61fd4796c41&Expires=4850553862&Signature=PY0x34mwhcNxIdtTuNIrDjLTbpU%3D) on `next/image`, hostname "classbon-blog.s3.ir-thr-at1.arvanstorage.ir" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    at Array.map (<anonymous>)

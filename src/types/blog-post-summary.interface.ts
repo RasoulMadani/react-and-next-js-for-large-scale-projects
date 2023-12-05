@@ -1,7 +1,7 @@
 export interface BlogPostSummary {
   title: string;
   slug: string;
-  postData: string;
+  postDate: string;
   thumbnailUrl: string;
   studyTime: number;
   numberOfViews: number;
