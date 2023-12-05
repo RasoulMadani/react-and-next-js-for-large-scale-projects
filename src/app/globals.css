@@ -1,17 +1,27 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@import '../tailwind/components/components.css';
+@import "../tailwind/components/components.css";
 
-
-html{
-    font-family: var(--font-vazirmatn); 
-} 
-
-:lang(en){
-    font-family: var(--font-figtree);
+html {
+  font-family: var(--font-vazirmatn);
 }
-.gradient{
-    @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text
+
+:lang(en) {
+  font-family: var(--font-figtree);
+}
+.gradient {
+  @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
+}
+.animated-icon {
+  & > * {
+    @apply transition-all;
+  }
+  &:hover {
+    @apply text-white;
+    & > * {
+      @apply -translate-x-2;
+    }
+  }
 }
