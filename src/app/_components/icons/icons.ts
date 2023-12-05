@@ -14,6 +14,7 @@ export { default as IconDownload } from './src/download';
 export { default as IconEnrollment } from './src/enrollment';
 export { default as IconEye } from './src/eye';
 export { default as IconFullScreen } from './src/full-screen';
+export { default as IconIconmonstrPasteClipboardFilled } from './src/iconmonstr-paste-clipboard-filled';
 export { default as IconLeft } from './src/left';
 export { default as IconLevel } from './src/level';
 export { default as IconLogout } from './src/logout';

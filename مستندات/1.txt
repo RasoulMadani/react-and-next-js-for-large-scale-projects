@@ -25,3 +25,6 @@ pnpm test:generate-output --watch
 pnpm add -D gulp gulp-rename gulp-wrap gulp-replace gulp-svgmin
 cd icons
 sudo npm install gulp -g
+
+cd icons
+gulp
