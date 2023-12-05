@@ -6,6 +6,7 @@ import { IconArrowLeftFill, IconClock } from "./_components/icons/icons";
 import { homeFeatures } from "@/data/home-features";
 import Feature from "./_components/feature/feature";
 import { Button } from "./_components/button";
+import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   const res = await fetch(
     `https://api.classbon.com/api/courses/newest/${count}`,
@@ -22,8 +23,28 @@ async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   );
   return res.json();
 }
+
+async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
+  const res = await fetch(`https://api.classbon.com/api/blog/newest/${count}`, {
+    // با این مقدار می گوییم که نکست جی اس بعد از ۲۰ ثانیه دوباره درخواست بزند
+    // و صفحه را بسازد و با به روزرسانی صفحه تغییرات را خواهیم دید
+    // قبل از ۲۰ ثانیه اگر صفحه را به روزرسانی هم کنیم باز تغییرات را نمی بینیم
+    // چون این بیست ثانیه سمت سرور شمارش می شود
+    next: {
+      // بر اساس ثانیه است
+      revalidate: 20 * 60 * 60,
+    },
+  });
+  return res.json();
+}
 export default async function Home() {
-  const newestCourses = await getNewestCourses(4);
+  const newestCoursesData = getNewestCourses(4);
+  const newestBlogPostData = getNewestPosts(4);
+  // اگر یکی از این ها رجکت بشود کل پرامیس رجکت می شود
+  const [newestCourses, newestBlogPost] = await Promise.all([
+    newestCoursesData,
+    newestBlogPostData,
+  ]);
   return (
     <>
       <HomeHeroSection />
