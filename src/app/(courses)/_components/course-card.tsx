@@ -38,7 +38,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
             <IconClock width={16} height={16} />
             {duration}
           </Badge>
-          <Price price={basePrice} />
+          <Price price={basePrice} size="small"/>
         </div>
       </div>
       <Link
