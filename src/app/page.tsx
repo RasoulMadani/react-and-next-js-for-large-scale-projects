@@ -34,8 +34,8 @@ export default async function Home() {
           </p>
         </div>
         <CourseCardList courses={newestCourses}/>
-        <IconClock />
+        <IconClock width={250} height={250} stroke="red"/>
       </section>
-    </>
+    </> 
   );
 }
