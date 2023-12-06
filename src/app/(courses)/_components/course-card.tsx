@@ -42,7 +42,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
         </div>
       </div>
       <Link
-        href={`/course/${slug}`}
+        href={`/courses/${slug}`}
         className="card-footer justify-center animated-icon"
       >
         مشاهده ی جزییات دوره
