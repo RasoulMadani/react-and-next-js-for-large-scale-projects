@@ -9,22 +9,7 @@ import { Button } from "./_components/button";
 import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 import { BlogPostCardList } from "./(blog)/_components/blog-post-card-list";
 import { API_URL } from "@/configs/global";
-async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-  // با این خط کد می توانیم ۵ ثانیه وقفه در اجرای کد بعدی ایجاد کنیم
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-  const res = await fetch(`${API_URL}/courses/newest/${count}`, {
-    cache: "no-store",
-    // با این مقدار می گوییم که نکست جی اس بعد از ۲۰ ثانیه دوباره درخواست بزند
-    // و صفحه را بسازد و با به روزرسانی صفحه تغییرات را خواهیم دید
-    // قبل از ۲۰ ثانیه اگر صفحه را به روزرسانی هم کنیم باز تغییرات را نمی بینیم
-    // چون این بیست ثانیه سمت سرور شمارش می شود
-    next: {
-      // بر اساس ثانیه است
-      revalidate: 20 * 60 * 60,
-    },
-  });
-  return res.json();
-}
+import { Suspense } from "react";
 
 async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
   const res = await fetch(`${API_URL}/blog/newest/${count}`, {
@@ -40,13 +25,9 @@ async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
   return res.json();
 }
 export default async function Home() {
-  const newestCoursesData = getNewestCourses(4);
   const newestBlogPostData = getNewestPosts(4);
   // اگر یکی از این ها رجکت بشود کل پرامیس رجکت می شود
-  const [newestCourses, newestBlogPosts] = await Promise.all([
-    newestCoursesData,
-    newestBlogPostData,
-  ]);
+  const [newestBlogPosts] = await Promise.all([newestBlogPostData]);
   return (
     <>
       <HomeHeroSection />
@@ -62,7 +43,9 @@ export default async function Home() {
           <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشی</h2>
           <p>برای به روز موندن یاد گرفتن نکته های تازه ضروریه</p>
         </div>
-        <CourseCardList courses={newestCourses} />
+        <Suspense fallback={<div>در حال دریافت اطلاعات...</div>}>
+          <CourseCardList courses={[]} />
+        </Suspense>
       </section>
       <section className="px-2 my-40">
         {/* <div className="sticky top-0 pt-0 text-center"> */}
