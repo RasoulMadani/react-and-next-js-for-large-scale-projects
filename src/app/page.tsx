@@ -10,19 +10,19 @@ import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 import { BlogPostCardList } from "./(blog)/_components/blog-post-card-list";
 import { API_URL } from "@/configs/global";
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-  const res = await fetch(
-    `${API_URL}/courses/newest/${count}`,
-    {
-      // با این مقدار می گوییم که نکست جی اس بعد از ۲۰ ثانیه دوباره درخواست بزند
-      // و صفحه را بسازد و با به روزرسانی صفحه تغییرات را خواهیم دید
-      // قبل از ۲۰ ثانیه اگر صفحه را به روزرسانی هم کنیم باز تغییرات را نمی بینیم
-      // چون این بیست ثانیه سمت سرور شمارش می شود
-      next: {
-        // بر اساس ثانیه است
-        revalidate: 20 * 60 * 60,
-      },
-    }
-  );
+  // با این خط کد می توانیم ۵ ثانیه وقفه در اجرای کد بعدی ایجاد کنیم
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  const res = await fetch(`${API_URL}/courses/newest/${count}`, {
+    cache: "no-store",
+    // با این مقدار می گوییم که نکست جی اس بعد از ۲۰ ثانیه دوباره درخواست بزند
+    // و صفحه را بسازد و با به روزرسانی صفحه تغییرات را خواهیم دید
+    // قبل از ۲۰ ثانیه اگر صفحه را به روزرسانی هم کنیم باز تغییرات را نمی بینیم
+    // چون این بیست ثانیه سمت سرور شمارش می شود
+    next: {
+      // بر اساس ثانیه است
+      revalidate: 20 * 60 * 60,
+    },
+  });
   return res.json();
 }
 
