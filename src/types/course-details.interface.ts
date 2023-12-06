@@ -5,7 +5,7 @@ export interface CourseDetails {
   basePrice?: number;//< == basePrice: number | undefined;
   numberOfLectures: number;
   level: string;
-  numOfStudent: number;
+  numOfStudents: number;
   duration: string;
   isDownloadable: boolean;
   numOfReviews: number;
