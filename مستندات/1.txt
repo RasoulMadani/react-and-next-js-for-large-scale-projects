@@ -38,3 +38,5 @@ PnZK9
 
 cd icons
 gulp
+
+pnpm add axios
