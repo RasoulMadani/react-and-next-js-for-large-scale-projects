@@ -40,3 +40,6 @@ cd icons
 gulp
 
 pnpm add axios
+
+
+pnpm add react-query
