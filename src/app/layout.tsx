@@ -1,64 +1,68 @@
-import './globals.css'
-import {Figtree} from 'next/font/google';
-import localFont from 'next/font/local';
+import "./globals.css";
+import { Figtree } from "next/font/google";
+import localFont from "next/font/local";
 
-import { Header } from './_components/header';
-import { Footer } from './_components/footer';
+import { Header } from "./_components/header";
+import { Footer } from "./_components/footer";
+import QueryProvider from "@/providers/react-query-provider";
 const figtree = Figtree({
   display: "swap",
   subsets: ["latin"],
-  weight: ['300','400','500','600','700','800','900'],
-  variable: "--font-figtree"
-})
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-figtree",
+});
 const vazirmatn = localFont({
-  src:[
+  src: [
     {
-      path:'../../public/fonts/vazirmatn/Vazirmatn-Thin.woff2',
-      weight: '100',
-      style: 'normal'
+      path: "../../public/fonts/vazirmatn/Vazirmatn-Thin.woff2",
+      weight: "100",
+      style: "normal",
     },
     {
-      path:'../../public/fonts/vazirmatn/Vazirmatn-Light.woff2',
-      weight: '300',
-      style: 'normal'
+      path: "../../public/fonts/vazirmatn/Vazirmatn-Light.woff2",
+      weight: "300",
+      style: "normal",
     },
     {
-      path:'../../public/fonts/vazirmatn/Vazirmatn-Regular.woff2',
-      weight: '400',
-      style: 'normal'
+      path: "../../public/fonts/vazirmatn/Vazirmatn-Regular.woff2",
+      weight: "400",
+      style: "normal",
     },
     {
-      path:'../../public/fonts/vazirmatn/Vazirmatn-SemiBold.woff2',
-      weight: '600',
-      style: 'normal'
+      path: "../../public/fonts/vazirmatn/Vazirmatn-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
     },
     {
-      path:'../../public/fonts/vazirmatn/Vazirmatn-Bold.woff2',
-      weight: '700',
-      style: 'normal'
+      path: "../../public/fonts/vazirmatn/Vazirmatn-Bold.woff2",
+      weight: "700",
+      style: "normal",
     },
     {
-      path:'../../public/fonts/vazirmatn/Vazirmatn-Black.woff2',
-      weight: '900',
-      style: 'normal'
-    }
+      path: "../../public/fonts/vazirmatn/Vazirmatn-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
   ],
-  variable: '--font-vazirmatn'
-})
+  variable: "--font-vazirmatn",
+});
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html dir='rtl' className={`dark ${figtree.variable} ${vazirmatn.variable}`}>
+    <html
+      dir="rtl"
+      className={`dark ${figtree.variable} ${vazirmatn.variable}`}
+    >
       <body className="min-h-screen grid  grid-rows-[80px_1fr_auto] dark:bg-base-100 dark:text-base-content">
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer/>
-        </body>
+        <QueryProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </QueryProvider>
+      </body>
     </html>
-  )
+  );
 }
