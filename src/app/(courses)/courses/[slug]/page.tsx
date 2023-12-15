@@ -7,6 +7,7 @@ import { Tab } from "@/types/tab.type";
 import { Tabs } from "@/app/_components/tabs";
 import { Accordion } from "@/app/_components/accordion";
 import { Accordion as AccordionType } from "@/types/accordion.type";
+import CourseComments from "./_components/comments/course-comments";
 
 export async function generateStaticParams() {
   const slugs = await fetch(`${API_URL}/courses/slugs`).then((res) => {
@@ -40,7 +41,7 @@ export default async function CourseDetails({
     },
     {
       label: "دیدگاه ها و پرسش",
-      content: "course content",
+      content: <CourseComments/>,
     },
     {
       label: "سوالات متداول",
