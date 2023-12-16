@@ -4,6 +4,7 @@ export const queryClient = new QueryClient({
   queryCache: new QueryCache({
     // برای مدیریت کش استفاده می شود ولی مدیریت خطاها را هم می توانیم با آن شخصی سازی کنیم
     onError: (error) => {
+      debugger;
       // خطاها اینجا می آید و می توانیم مدیریت کنیم
       // show notification
     },
